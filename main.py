@@ -1,10 +1,13 @@
 import discord
+from main2 import gen_pass
 
-# ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
+
+
+#ayricaliklar (intents) değişkeni botun ayrıcalıklarını depolayacak
 intents = discord.Intents.default()
-# Mesajları okuma ayrıcalığını etkinleştirelim
+#Mesajları okuma ayrıcalığını etkinleştirelim
 intents.message_content = True
-# client (istemci) değişkeniyle bir bot oluşturalım ve ayrıcalıkları ona aktaralım
+#client (istemci) değişkeniyle bir bot oluşturalım ve ayrıcalıkları ona aktaralım
 client = discord.Client(intents=intents)
 
 
@@ -26,7 +29,10 @@ async def on_message(message):
     elif message.content.startswith('En sevdiğim pb karakteri'):
         gif2 = 'https://tenor.com/view/michael-scolfield-wentworth-miller-wade-gif-21957458'
         await message.channel.send(gif2)
+    elif message.content.startswith('sifre_olustur'):
+        password = gen_pass(10)
+        await message.channel.send(f"Oluşturulan şifre: {password}")
     else:
         await message.channel.send(message.content)
 
-client.run("<token>")
+client.run("MTE1NTkzNzI3MjQ0OTk5ODkzOA.GlO0fY.RgDjXQZQ8bCWD5X3rrA4H5jrulYMr4nHGY9kaQ")
